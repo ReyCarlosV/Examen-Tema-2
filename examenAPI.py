@@ -1,17 +1,15 @@
 import requests
 
-class getRecord:
+# Clase para manejar la conexión a la API
+class ExamenApi:
     def __init__(self, url):
         self.url = url
 
     def obtener_todos_los_registros(self):
         try:
-            # Hacer una solicitud GET a la API
             respuesta = requests.get(self.url)
-            # Verificar si la solicitud fue exitosa
             if respuesta.status_code == 200:
                 registros = respuesta.json()
-                # Retornar todos los registros
                 return registros if registros else []
             else:
                 return []
